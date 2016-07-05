@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="colorArrChoice">
+        <item>#D48922</item>
+        <item>#D48951</item>
+        <item>#D38922</item>
+        <item>#D46922</item>
+        <item>#C48452</item>
+        <item>#D48972</item>
+        <item>#D18922</item>
+    </array>
+</resources>
