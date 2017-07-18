@@ -1,26 +1,16 @@
 apply plugin: 'com.android.application'
-<<<<<<< HEAD
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-=======
 
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
->>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
 
     defaultConfig {
         applicationId "developer.musicindia.com.mytodo"
         minSdkVersion 14
-<<<<<<< HEAD
         targetSdkVersion 25
-=======
-        targetSdkVersion 23
->>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
         versionCode 1
         versionName "1.0"
     }
@@ -30,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-<<<<<<< HEAD
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,43 +39,19 @@ dependencies {
     apt "com.jakewharton:butterknife-compiler:8.0.1"
     // Lightweight Stream
     compile 'com.annimon:stream:1.1.2'
-=======
-}
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-
-
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:cardview-v7:23.2.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:recyclerview-v7:23.2.0'
-
-
->>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
     compile 'com.github.bumptech.glide:glide:3.6.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'org.solovyev.android.views:linear-layout-manager:0.5@aar'
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile 'com.github.markushi:circlebutton:1.1'
-<<<<<<< HEAD
+
     compile 'com.wdullaer:materialdatetimepicker:1.5.1'
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
-    /*compile 'com.google.dagger:dagger:2.10'*/
 
     // Dependency Injection
     apt "com.google.dagger:dagger-compiler:2.2"
     compile 'com.google.dagger:dagger:2.2'
     provided 'javax.annotation:jsr250-api:1.0'
 
-    /*compile 'com.google.dagger:dagger-android:2.10'
-    compile 'com.google.dagger:dagger-android-support:2.10' // if you use the support libraries
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.10'*/
-=======
-
-    compile 'com.wdullaer:materialdatetimepicker:1.5.1'
-    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
-
->>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
 }
