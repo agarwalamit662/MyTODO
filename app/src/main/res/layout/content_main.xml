@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:id="@+id/todoItemCardView"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="#D48922">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/taskCompleted"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:src="@drawable/btn_chkbox_disabled"
+            android:layout_marginBottom="5dp"
+            android:elevation="5dp"
+            />
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_toRightOf="@+id/taskCompleted"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:padding="7dp"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/titleToDo"
+            android:textStyle="bold|italic"
+            android:gravity="center_vertical"
+            android:text="TODO TITLE"
+            android:background="?android:attr/selectableItemBackground"
+            />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mk_ic_menu_delete"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:elevation="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/deleteToDo"
+                />
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="2dp"
+                android:background="@android:color/darker_gray"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alarmTime"
+                    android:elevation="5dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/action_alarm"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:maxLines="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:layout_toRightOf="@+id/alarmTime"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/alarmTimeValue"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="DUE TIME  KJKNKJNKJNkj"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clickForMore"
+                    android:src="@drawable/ic_chevron_down_white_48dp"/>
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="#942560"
+                android:text="ABOUT THIS TODO"
+                android:textStyle="italic"
+                android:id="@+id/toDoDesc"
+                android:textSize="15dp"
+                android:layout_toRightOf="@+id/clickForMore"
+                android:layout_marginTop="6dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_marginLeft="3dp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DD000000"
+            android:text="DESCRIPTION NJNKJNKJNKJ JKNKJn"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:textSize="15dp"
+            android:id="@+id/hiddenDesText"
+            android:padding="20dp"
+            android:textColor="#ffffff"
+            android:visibility="invisible"
+            />
+        </LinearLayout>
+        </FrameLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

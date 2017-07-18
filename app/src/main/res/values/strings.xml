@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyTODO</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="colorOne"></string>
+
+    <string name="earth">Earth</string>
+    <string name="moon">Moon</string>
+
+    <string-array name="colorArr">
+        <item>#942560</item>
+        <item>#245560</item>
+        <item>#441220</item>
+        <item>#C41422</item>
+        <item>#C48422</item>
+        <item>#D48922</item>
+        <item>#E42922</item>
+    </string-array>
+    <string name="title_activity_edit">EditActivity</string>
+</resources>
