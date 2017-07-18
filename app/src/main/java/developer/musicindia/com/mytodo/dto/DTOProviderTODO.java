@@ -66,11 +66,6 @@ public class DTOProviderTODO {
         ArrayList<TODO> todoList = new ArrayList<>();
 
 
-
-    public static ArrayList<TODO> getTODOListinDatabase(Context mContext) {
-        ArrayList<TODO> todoList = new ArrayList<>();
-
-
         String sortOrder = UserProvider._TODOID + " DESC , " + UserProvider._TODO_COMPLETED+ " DESC ";
         Uri uri = UserProvider.CONTENT_URI_TODO;
 
