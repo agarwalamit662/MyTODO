@@ -23,9 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
@@ -38,6 +40,7 @@ import developer.musicindia.com.mytodo.R;
 import developer.musicindia.com.mytodo.UI.EditToDoPresenter;
 import developer.musicindia.com.mytodo.UI.EditToDoView;
 import developer.musicindia.com.mytodo.app.MyToApplication;
+
 import developer.musicindia.com.mytodo.dto.DTOProviderTODO;
 import developer.musicindia.com.mytodo.model.TODO;
 import developer.musicindia.com.mytodo.services.RemindMyTODO;
@@ -75,8 +78,6 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
     @BindView(R.id.save)
     Button save;
 
-
-
     private TODO mUserToDoItem;
 
     private static int todoId;
@@ -89,6 +90,7 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edittodo);
+
         ButterKnife.bind(this);
         ((MyToApplication)getApplication()).getAppComponent().inject(this);
 
@@ -115,6 +117,7 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
                     public void onClick(DialogInterface arg0, int arg1) {
 
                         TODO todo = mUserToDoItem;
+
 
                         editToDoPresenter.deleteTODOfromDatabase(todoId);
 
@@ -168,8 +171,8 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
 
                             TODO item = mUserToDoItem;
                             item.setCompleted(1);
-                            editToDoPresenter.updateTODOIteminDatabase(item);
 
+                            editToDoPresenter.updateTODOIteminDatabase(item);
                             completed = 1;
                             mUserToDoItem.setCompleted(1);
 
@@ -180,6 +183,7 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
 
                             TODO item = mUserToDoItem;
                             item.setCompleted(0);
+
                             editToDoPresenter.updateTODOIteminDatabase(item);
                             completed = 0;
                             mUserToDoItem.setCompleted(0);
@@ -258,10 +262,7 @@ public class EditActivity extends AppCompatActivity implements EditToDoView,Date
 
                 if(title != null && desc != null && title.length() > 0 && desc.length() > 0) {
                     TODO todo = new TODO(mUserToDoItem.getTodoId(), title, desc, date, completed);
-
-
                     editToDoPresenter.updateTODOIteminDatabaseAndClose(todo);
-
                 }
                 else{
                    // Toast.makeText(EditActivity.this, "Please fill Title and Desc Properly", Toast.LENGTH_SHORT).show();

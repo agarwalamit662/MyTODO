@@ -3,11 +3,9 @@ package developer.musicindia.com.mytodo.receivers;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.widget.Toast;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,11 +23,14 @@ import javax.inject.Inject;
  */
 public class BootBroadcastReceiver extends BroadcastReceiver {
 
+
     @Inject DTOProviderTODO dtoProviderTODO;
+
 
     @Override
     public void onReceive(Context pContext, Intent intent) {
         // Do your work related to alarm manager
+
 
         ((MyToApplication) pContext.getApplicationContext()).getAppComponent().inject(this);
 

@@ -1,4 +1,6 @@
 package developer.musicindia.com.mytodo.activities;
+
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -57,11 +59,12 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     private TODORecyclerViewAdapter adapter;
 
-    public static int[] colorArr;
+	public static int[] colorArr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ((MyToApplication)getApplication()).getAppComponent().inject(this);
 
@@ -72,11 +75,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
         mainPresenter.setView(this);
         mainPresenter.loadToDos();
-
-        //recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        /*arrList = new ArrayList<TODO>();
-        arrList = dtoProviderDto.getTODOListinDatabase();*/
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -97,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
     }
 
     @Override
+
     public void displayAllTodos(ArrayList<TODO> arrList){
 
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
@@ -123,11 +122,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
     public void onResume(){
         super.onResume();
 
-        /*arrList = dtoProviderDto.getTODOListinDatabase();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        adapter = new TODORecyclerViewAdapter(MainActivity.this,arrList );
-        recyclerView.setAdapter(adapter);*/
 
         mainPresenter.setView(this);
         mainPresenter.loadToDos();
@@ -137,14 +131,16 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
 
 
-    public class TODORecyclerViewAdapter
+    public class TODORecyclerViewAdapter 
             extends RecyclerView.Adapter<TODORecyclerViewAdapter.ViewHolder> {
 
         private final TypedValue mTypedValue = new TypedValue();
         private int mBackground;
         private List<TODO> mValues;
         private Context mContext;
+
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
+
             public String mBoundString;
             public CircleImageView taskCompleted;
             public TextView titleToDo;
@@ -292,9 +288,11 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
                                 TODO item = mValues.get(position);
                                 item.setCompleted(1);
+
                                 /*ContentValues values = dtoProviderDto.putContentValues(item);
                                 dtoProviderDto.updateTODOIteminDatabase(item.getTodoId(),values);*/
                                 mainPresenter.updateToDo(item);
+
 
                                 mValues.get(position).setCompleted(1);
                                 notifyDataSetChanged();
@@ -305,6 +303,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
                                 TODO item = mValues.get(position);
                                 item.setCompleted(0);
+
                                 /*ContentValues values = dtoProviderDto.putContentValues(item);
                                 dtoProviderDto.updateTODOIteminDatabase(item.getTodoId(),values);*/
 
@@ -368,7 +367,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
                                 public void onClick(DialogInterface dialog, int arg1) {
 
                                     TODO todo = mValues.get(position);
+
                                     mainPresenter.deleteTODOfromDatabase(todo.getTodoId());
+
                                     Toast.makeText(mContext, "Deleted TODO Successfully", Toast.LENGTH_SHORT).show();
 
                                     removeAt(position);
@@ -397,7 +398,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
         }
 
+
         public String formatDate(String formatString, Date dateToFormat){
+
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(formatString);
             return simpleDateFormat.format(dateToFormat);
         }
@@ -416,8 +419,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
             notifyItemRangeChanged(position, mValues.size());
         }
 
+
     }
-
-
 
 }

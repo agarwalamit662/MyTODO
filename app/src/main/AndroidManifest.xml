@@ -13,7 +13,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+<<<<<<< HEAD
         android:name=".app.MyToApplication"
+=======
+>>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 import developer.musicindia.com.mytodo.app.MyToApplication;
 import developer.musicindia.com.mytodo.data.UserProvider;
 import developer.musicindia.com.mytodo.model.TODO;
@@ -41,6 +42,7 @@ import javax.inject.Inject;
 public class DTOProviderTODO {
 
     @Inject ContentResolver contentResolver;
+
 
     private final static String[] projection = {
             UserProvider._TODOID,
@@ -55,6 +57,7 @@ public class DTOProviderTODO {
             "MAX("+UserProvider._TODOID+")"
     };
 
+
     public DTOProviderTODO(Context context){
         ((MyToApplication)context).getAppComponent().inject(this);
     }
@@ -63,15 +66,17 @@ public class DTOProviderTODO {
         ArrayList<TODO> todoList = new ArrayList<>();
 
 
-        //String where = UserProvider._SONG_DELETE + "=?";
 
-        //String[] selectionArgs = new String[]{String.valueOf(0)};
+    public static ArrayList<TODO> getTODOListinDatabase(Context mContext) {
+        ArrayList<TODO> todoList = new ArrayList<>();
 
 
         String sortOrder = UserProvider._TODOID + " DESC , " + UserProvider._TODO_COMPLETED+ " DESC ";
         Uri uri = UserProvider.CONTENT_URI_TODO;
 
+
         Cursor cursor = contentResolver.query(uri, projection, null, null, sortOrder);
+
 
         int todoidindex = cursor.getColumnIndex(UserProvider._TODOID);
         int todotextindex = cursor.getColumnIndex(UserProvider._TODO_TEXT);
@@ -108,6 +113,7 @@ public class DTOProviderTODO {
         return todoList;
     }
 
+
     public ArrayList<TODO> getTODOIteminDatabase(int id) {
         ArrayList<TODO> todoList = new ArrayList<>();
 
@@ -115,6 +121,7 @@ public class DTOProviderTODO {
         String where = UserProvider._TODOID + " =? ";
 
         String[] selectionArgs = new String[]{String.valueOf(id)};
+
 
         String sortOrder = UserProvider._TODOID + " DESC ";
         Uri uri = UserProvider.CONTENT_URI_TODO;
@@ -157,9 +164,11 @@ public class DTOProviderTODO {
         return todoList;
     }
 
+
     public int getMAXTODOIteminDatabase() {
         ArrayList<TODO> todoList = new ArrayList<>();
         int maxValue = 0;
+
 
 
         Uri uri = UserProvider.CONTENT_URI_TODO;
@@ -168,7 +177,6 @@ public class DTOProviderTODO {
 
         Cursor cursor = contentResolver.query(uri, projectionMaxId, null,null, null);
 
-        /*int todoidindex = cursor.getColumnIndex(UserProvider._TODOID);*/
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
@@ -182,7 +190,9 @@ public class DTOProviderTODO {
         return maxValue;
     }
 
+
     public void insertTODOIteminDatabase(ContentValues values) {
+
 
         Uri uri = UserProvider.CONTENT_URI_TODO;
 
@@ -190,6 +200,7 @@ public class DTOProviderTODO {
         try{
 
             uris = contentResolver.insert(uri, values);
+
         }
         catch (Exception e){
             Log.e("Exception Updating",e.toString());
@@ -199,19 +210,24 @@ public class DTOProviderTODO {
 
     }
 
+
     public int updateTODOIteminDatabase(int id,ContentValues values) {
+
 
 
 
         String where = UserProvider._TODOID + " =? ";
 
         String[] selectionArgs = new String[]{String.valueOf(id)};
+
         String sortOrder = UserProvider._TODOID + " DESC ";
         Uri uri = UserProvider.CONTENT_URI_TODO;
 
         int recUpdated=0;
         try{
+
             recUpdated = contentResolver.update(uri, values, where, selectionArgs);
+
         }
         catch (Exception e){
             Log.e("Exception Updating",e.toString());
@@ -222,6 +238,7 @@ public class DTOProviderTODO {
     }
 
     public ContentValues getContentValues(TODO todo){
+
 
         ContentValues values = new ContentValues();
 
@@ -236,6 +253,7 @@ public class DTOProviderTODO {
     }
 
     public ContentValues putContentValues(TODO todo){
+
 
         ContentValues values = new ContentValues();
 
@@ -258,11 +276,14 @@ public class DTOProviderTODO {
         String[] selectionArgs = new String[]{String.valueOf(id)};
 
 
+
         Uri uri = UserProvider.CONTENT_URI_TODO;
 
         int deleted = 0;
         try{
+
             deleted = contentResolver.delete(uri, where, selectionArgs);
+
         }
         catch (Exception e){
             Log.e("Error Deleting",e.toString());

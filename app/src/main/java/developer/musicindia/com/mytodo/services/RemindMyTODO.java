@@ -22,11 +22,15 @@ import developer.musicindia.com.mytodo.model.TODO;
 
 import javax.inject.Inject;
 
+import developer.musicindia.com.mytodo.dto.DTOProviderTODO;
+import developer.musicindia.com.mytodo.model.TODO;
+
 public class RemindMyTODO extends IntentService {
 
     public RemindMyTODO() {
         super("RemindMyTODO");
     }
+
 
     @Inject
     DTOProviderTODO dtoProviderTODO;
@@ -44,7 +48,9 @@ public class RemindMyTODO extends IntentService {
 
         mUserToDoItem = (TODO)intent.getSerializableExtra("TODOREMINDER");
         Date remDate = mUserToDoItem.getReminderTime();
+
         ArrayList<TODO> foundList =  dtoProviderTODO.getTODOIteminDatabase(mUserToDoItem.getTodoId());
+
         if (intent != null && mUserToDoItem != null && foundList != null && foundList.size() > 0) {
 
             Notification notification;

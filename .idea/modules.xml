@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/MyTODO-master.iml" filepath="$PROJECT_DIR$/MyTODO-master.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/MyTODO.iml" filepath="$PROJECT_DIR$/MyTODO.iml" />
+>>>>>>> f2ae950b9a459319ed5def68e56f85e17c1affbc
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

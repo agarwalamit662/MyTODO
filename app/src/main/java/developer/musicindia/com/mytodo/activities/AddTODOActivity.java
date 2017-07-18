@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -36,6 +37,7 @@ import developer.musicindia.com.mytodo.app.MyToApplication;
 import developer.musicindia.com.mytodo.dto.DTOProviderTODO;
 import developer.musicindia.com.mytodo.model.TODO;
 import developer.musicindia.com.mytodo.services.RemindMyTODO;
+
 
 import javax.inject.Inject;
 
@@ -75,10 +77,12 @@ public class AddTODOActivity extends AppCompatActivity implements AddToDoView, D
     Button save;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtodo);
+
         ButterKnife.bind(this);
 
 
@@ -142,6 +146,7 @@ public class AddTODOActivity extends AppCompatActivity implements AddToDoView, D
                 if(title != null && desc != null && title.length() > 0 && desc.length() > 0) {
 
                     TODO todo = new TODO(0, title, desc, date, completed);
+
                     addToDoPresenter.insertTODOIteminDatabase(todo);
 
                 }
@@ -298,6 +303,7 @@ public class AddTODOActivity extends AppCompatActivity implements AddToDoView, D
         super.onPause();
         overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
     }
+
 
     @Override
     public void savedSuccessfully(TODO todo) {
